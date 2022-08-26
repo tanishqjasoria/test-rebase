@@ -9,13 +9,12 @@ jobs:
   rebase_branches:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Rebase develop on master
         run: |
           git rebase --autosquash --autostash main develop
-      - name: Push develop
-        run: |
           git push --force origin develop
+          
 
