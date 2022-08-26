@@ -1,0 +1,18 @@
+name: Develop Rebase
+on:
+  push:
+    branches:
+      # All pushes to this branch will trigger the task.
+      - main
+
+jobs:
+  rebase_branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rebase develop on master
+        run: |
+          git rebase --autosquash --autostash main develop
+      - name: Push develop
+        run: |
+          git push --force origin develop
+
