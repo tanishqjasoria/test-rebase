@@ -9,6 +9,7 @@ jobs:
   rebase_branches:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Rebase develop on master
         run: |
           git rebase --autosquash --autostash main develop
